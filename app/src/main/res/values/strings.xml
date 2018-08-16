@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Build it Bigger</string>
+    <string name="instructions">Press the button for a delicious joke!</string>
+    <string name="button_text">Tell Joke</string>
+    <string name="action_settings">Settings</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="inputstreamError">Error with creating URL</string>
+    <string name="responseCodeError">Error Response Code</string>
+    <string name="jsonError">Error receiving Json</string>
+    <string name="utf8">UTF-8</string>
+    <string name="get">GET</string>
+    <string name="urlError">Error creating url</string>
+    <string name="parseError">Problem parsing the MOVIE JSON results</string>
+    <string name="json_url">https://icanhazdadjoke.com/</string>
+    <string name="joke">joke</string>
+    <string name="nja">No Joke Available</string>
+</resources>
