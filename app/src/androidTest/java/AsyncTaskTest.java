@@ -1,7 +1,7 @@
-
-
 import android.os.AsyncTask;
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.test.InstrumentationTestCase;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -13,9 +13,6 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import android.support.test.rule.ActivityTestRule;
-import android.test.InstrumentationTestCase;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
@@ -29,14 +26,13 @@ public class AsyncTaskTest extends InstrumentationTestCase {
     // Billy Brackeen
 
     @Rule
-    public ActivityTestRule<MainActivity> mcccActivityTestRule = new ActivityTestRule<>(MainActivity.class);
+    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
 
     @Test
     public void retrieveJokeTest() {
 
         final CountDownLatch signal = new CountDownLatch(1);
-
 
         final AsyncTask<Integer, Void, String> myTask = new AsyncTask<Integer, Void, String>() {
 
@@ -51,7 +47,7 @@ public class AsyncTaskTest extends InstrumentationTestCase {
                             .setRootUrl("http://192.168.1.5:8080/_ah/api/")
                             .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                                 @Override
-                                public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                                public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) {
                                     abstractGoogleClientRequest.setDisableGZipContent(true);
                                 }
                             });

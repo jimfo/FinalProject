@@ -1,7 +1,7 @@
 package com.jimfo.android_joke_lib;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -19,8 +19,8 @@ public class JokeActivity extends AppCompatActivity {
         jokeTv = findViewById(R.id.joke_tv);
 
         Bundle extras = getIntent().getExtras();
-        if(extras != null && extras.containsKey("joke")){
-            mJoke = extras.getString("joke");
+        if (extras != null && extras.containsKey(getResources().getString(R.string.joke_key))) {
+            mJoke = extras.getString(getResources().getString(R.string.joke_key));
             displayJoke();
         }
     }

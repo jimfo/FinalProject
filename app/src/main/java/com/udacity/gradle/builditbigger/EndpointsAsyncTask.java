@@ -1,24 +1,26 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.view.View;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-import com.jimfo.android_joke_lib.JokeActivity;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
-import java.util.Random;
 
 public class EndpointsAsyncTask extends AsyncTask<Integer, Void, String> {
 
+    private static final String TAG = EndpointsAsyncTask.class.getSimpleName();
     private MyApi myApiService = null;
     private Context mContext;
+
+    public interface PostExecuteListener {
+        void onPostExecute(String result);
+    }
 
     public EndpointsAsyncTask(Context context){
         this.mContext = context;
@@ -36,7 +38,7 @@ public class EndpointsAsyncTask extends AsyncTask<Integer, Void, String> {
                     .setRootUrl("http://192.168.1.5:8080/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
-                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
+                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) {
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
                     });
@@ -51,15 +53,8 @@ public class EndpointsAsyncTask extends AsyncTask<Integer, Void, String> {
             return myApiService.tellJoke(index).execute().getData();
         }
         catch (IOException e) {
-            return e.getMessage();
+            Log.i(TAG, e.getMessage());
+            return null;
         }
-    }
-
-    @Override
-    protected void onPostExecute(String result) {
-        Intent intent = new Intent(mContext, JokeActivity.class);
-        intent.putExtra("joke", result);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        mContext.startActivity(intent);
     }
 }

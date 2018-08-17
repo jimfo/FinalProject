@@ -58,8 +58,7 @@ dependencies {
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
-    implementation project(':java_joke_lib')
+    freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
     implementation project(':android_joke_lib')
 
     androidTestImplementation('com.android.support:support-annotations:26.1.0')

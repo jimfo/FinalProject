@@ -1,13 +1,17 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.jimfo.android_joke_lib.JokeActivity;
+
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.PostExecuteListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
         Random rand = new Random();
         int n = rand.nextInt(20);
         new EndpointsAsyncTask(this).execute(n);
+    }
 
+    @Override
+    public void onPostExecute(String result) {
+        Intent intent = new Intent(this, JokeActivity.class);
+        intent.putExtra("joke", result);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
