@@ -1,6 +1,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/aaec2103f44449728d6ced617f58c6c4)](https://www.codacy.com/app/jimfo/FinalProject?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jimfo/FinalProject&amp;utm_campaign=Badge_Grade)
 # Gradle for Android and Java Final Project
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/11496143ecc945269c63e0e22e525f3f)](https://app.codacy.com/app/jimfo/FinalProject?utm_source=github.com&utm_medium=referral&utm_content=jimfo/FinalProject&utm_campaign=badger)
+
 In this project, you will create an app with multiple flavors that uses
 multiple libraries and Google Cloud Endpoints. The finished app will consist
 of four modules. A Java library that provides jokes, a Google Cloud Endpoints
