@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
     public void tellJoke(View view) {
         Random rand = new Random();
         int n = rand.nextInt(20);
-        new EndpointsAsyncTask(this).execute(n);
+        new EndpointsAsyncTask().execute(n);
     }
 
     @Override

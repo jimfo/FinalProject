@@ -20,7 +20,7 @@ public class JokeResultNotNullOrEmpty extends InstrumentationTestCase implements
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
     private Context mContext;
-    final CountDownLatch signal = new CountDownLatch(1);
+    private final CountDownLatch signal = new CountDownLatch(1);
 
     @Before
     public void setUp() throws Exception {
@@ -34,7 +34,7 @@ public class JokeResultNotNullOrEmpty extends InstrumentationTestCase implements
     @Test
     public void jokeResultTest() {
 
-        new EndpointsAsyncTask(mContext).execute(3);
+        new EndpointsAsyncTask().execute(3);
 
     }
 
