@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aaec2103f44449728d6ced617f58c6c4)](https://www.codacy.com/app/jimfo/FinalProject?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jimfo/FinalProject&amp;utm_campaign=Badge_Grade)
 # Gradle for Android and Java Final Project
 
 In this project, you will create an app with multiple flavors that uses
